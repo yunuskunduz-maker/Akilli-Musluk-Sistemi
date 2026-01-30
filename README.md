@@ -38,12 +38,14 @@ Bu projeyi kurmak için ihtiyacınız olan donanım ve yazılımlar:
 **Yazılım:**
 * Arduino IDE (Kod yüklemek için)
 
-## Bağlantı Şeması (Fritzing)
+## Bağlantı Şeması (Fritzing + Canlı Görsel)
 
 Aşağıdaki Fritzing şeması, tüm bileşenlerin Arduino Nano'ya nasıl bağlanacağını göstermektedir. Güç bağlantılarına özellikle dikkat edin.
 
-**[Akilli Musluk Devresi Semasi (images/akilli_musluk_sistemi.png)]**
 ![Akıllı Musluk Sistemi](images/akilli_musluk_sistemi.png)
+![Akıllı Musluk Sistemi Yan Görünüm](images/akilli_musluk_sistemi2.jpeg)
+
+
 **Pin Bağlantı Listesi:**
 
 | Bileşen | Arduino Nano Pini | Notlar |
