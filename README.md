@@ -5,7 +5,6 @@ Bu proje, bir HC-SR04 mesafe sensörü, Arduino Nano ve SG90 mikro servo motor k
 ## İçerik
 
 * [Proje Hakkında](#proje-hakkında)
-* [Video Tanıtımı](#video-tanıtımı)
 * [Gereksinimler](#gereksinimler)
 * [Bağlantı Şeması (Fritzing)](#bağlantı-şeması-fritzing)
 * [Kurulum Adımları](#kurulum-adımları)
