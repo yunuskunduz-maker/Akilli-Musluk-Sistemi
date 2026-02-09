@@ -9,7 +9,7 @@ This project aims to create an automated faucet system using an **HC-SR04 ultras
 Unlike traditional faucets, this smart system automatically triggers water flow upon detection, eliminating the need for physical contact. This prevents unnecessary water consumption and enhances hygiene levels, offering a practical solution for public areas or frequently used home sinks.
 
 ## 📺 Video Demonstration
-**Smart Faucet System Video:** [CozumLab Smart Faucet System](https://www.youtube.com/@CozumLabTR)
+**Smart Faucet System Video:** [CozumLab Smart Faucet System](https://www.youtube.com/watch?v=o2YTCGb2zGE)
 
 ---
 
