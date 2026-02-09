@@ -1,98 +1,98 @@
-# Akıllı Musluk Sistemi (Arduino & Mesafe Sensörü)
+# 🚰 Smart Faucet System (Arduino & Distance Sensor)
 
-Bu proje, bir HC-SR04 mesafe sensörü, Arduino Nano ve SG90 mikro servo motor kullanarak otomatik bir musluk sistemi oluşturmayı amaçlar. Elinizi musluğun altına yaklaştırdığınızda su otomatik olarak açılır ve elinizi çektiğinizde kısa bir gecikmeyle kapanır. Sistem, su tasarrufu sağlamak ve hijyeni artırmak için tasarlanmıştır.
+This project aims to create an automated faucet system using an **HC-SR04 ultrasonic sensor**, **Arduino Nano**, and an **SG90 micro servo motor**. When a hand is detected within range, the water automatically turns on and shuts off with a short delay once the hand is removed. The system is designed for **water conservation** and **improved hygiene**.
 
-## İçerik
+---
 
-* [Proje Hakkında](#proje-hakkında)
-* [Gereksinimler](#gereksinimler)
-* [Bağlantı Şeması (Fritzing)](#bağlantı-şeması-fritzing)
-* [Kurulum Adımları](#kurulum-adımları)
-* [Kullanım](#kullanım)
-* [Kod Açıklaması](#kod-açıklaması)
-* [Katkıda Bulunma](#katkıda-bulunma)
+## 🚀 About the Project
 
-## Proje Hakkında
+Unlike traditional faucets, this smart system automatically triggers water flow upon detection, eliminating the need for physical contact. This prevents unnecessary water consumption and enhances hygiene levels, offering a practical solution for public areas or frequently used home sinks.
 
-Geleneksel muslukların aksine, bu akıllı sistem elinizi algıladığında suyu otomatik olarak açar ve elinizi çektiğinizde kapatır. Bu sayede gereksiz su tüketiminin önüne geçilir ve musluğa fiziksel temas ihtiyacı ortadan kalktığı için hijyen seviyesi artırılır. Özellikle halka açık alanlarda veya yoğun kullanılan ev lavabolarında pratik bir çözüm sunar.
+## 📺 Video Demonstration
+*(You can link your CozumLab YouTube video here in the future)*
 
-## Video Tanıtımı
+---
 
-## Gereksinimler
+## 🛠️ Requirements
 
-Bu projeyi kurmak için ihtiyacınız olan donanım ve yazılımlar:
+To build this project, you will need the following hardware and software:
 
-**Donanım:**
-* Arduino Nano (veya benzeri bir Arduino kartı)
-* HC-SR04 Mesafe Sensörü
-* SG90 Mikro Servo Motor
-* Buzzer (5V)
-* Yeşil LED (isteğe bağlı olarak)
-* Kırmızı LED (isteğe bağlı olarak)
-* 220 Ohm veya 330 Ohm Dirençler (LED'ler için, isteğe bağlı ama önerilir)
-* 6V Pil Paketi (4 adet AA/AAA pil) - Servo için harici besleme
-* Jumper Kablolar (Erkek-Erkek)
-* Breadboard (Devreyi kurmak için)
-* USB Kablosu (Arduino'ya kod yüklemek için)
+**Hardware:**
+* **Arduino Nano** (or compatible board)
+* **HC-SR04** Ultrasonic Distance Sensor
+* **SG90** Micro Servo Motor
+* **Buzzer** (5V)
+* **LEDs** (Green and Red)
+* **Resistors** (220 Ohm or 330 Ohm for LEDs)
+* **6V Battery Pack** (4x AA/AAA batteries) - External power for the Servo
+* **Jumper Wires** (Male-to-Male)
+* **Breadboard**
+* **USB Cable** (For programming the Arduino)
 
-**Yazılım:**
-* Arduino IDE (Kod yüklemek için)
+**Software:**
+* **Arduino IDE**
 
-## Bağlantı Şeması (Fritzing + Canlı Görsel)
+---
 
-Aşağıdaki Fritzing şeması, tüm bileşenlerin Arduino Nano'ya nasıl bağlanacağını göstermektedir. Güç bağlantılarına özellikle dikkat edin.
+## 📊 Wiring Diagram (Fritzing + Live View)
 
-![Akıllı Musluk Sistemi](images/akilli_musluk_sistemi.png)
-![Akıllı Musluk Sistemi Yan Görünüm](images/akilli_musluk_sistemi2.jpeg)
+The following diagram shows how to connect all components to the Arduino Nano. Pay special attention to power connections.
 
+<p align="center">
+  <img src="images/akilli_musluk_sistemi.png" width="400" title="Wiring Diagram">
+  <img src="images/akilli_musluk_sistemi2.jpeg" width="400" title="Live View">
+</p>
 
-**Pin Bağlantı Listesi:**
+**Pin Connection Table:**
 
-| Bileşen | Arduino Nano Pini | Notlar |
+| Component | Arduino Nano Pin | Notes |
 | :--- | :--- | :--- |
-| **HC-SR04 VCC** | 5V | Mesafe sensörü için güç |
-| **HC-SR04 Trig** | D2 | Tetikleyici pin |
-| **HC-SR04 Echo** | D12 | Geri dönen sinyal pin |
-| **HC-SR04 GND** | GND | Toprak |
-| **Servo Sinyal (Turuncu/Sarı)** | D9 | Servo kontrol pini |
-| **Servo VCC (Kırmızı)** | **Harici 6V Pil (+) ** | **ÖNEMLİ: Doğrudan pil paketine bağlanmalı** |
-| **Servo GND (Kahverengi/Siyah)** | Arduino GND & Pil (-) | Ortak toprak hattı |
-| **Buzzer (+)** | D3 | Sesli bildirim için |
-| **Buzzer (-)** | GND | Toprak |
-| **Yeşil LED (+)** | D4 | Musluk açık göstergesi (Direnç ile bağlanabilir) |
-| **Yeşil LED (-)** | GND | Toprak |
-| **Kırmızı LED (+)** | D5 | Musluk kapalı göstergesi (Direnç ile bağlanabilir) |
-| **Kırmızı LED (-)** | GND | Toprak |
-| **6V Pil Paketi (+)** | Arduino Nano VIN | Arduino için ana güç kaynağı |
-| **6V Pil Paketi (-)** | Arduino GND | Ortak toprak hattı |
+| **HC-SR04 VCC** | 5V | Power for distance sensor |
+| **HC-SR04 Trig** | D2 | Trigger pin |
+| **HC-SR04 Echo** | D12 | Echo signal pin |
+| **HC-SR04 GND** | GND | Ground |
+| **Servo Signal** | D9 | Servo control pin |
+| **Servo VCC** | **External 6V (+) ** | **IMPORTANT: Connect directly to battery pack** |
+| **Servo GND** | Arduino GND & Bat (-) | Common ground line |
+| **Buzzer (+)** | D3 | Audio feedback |
+| **Green LED (+)** | D4 | Faucet ON indicator |
+| **Red LED (+)** | D5 | Faucet OFF indicator |
+| **6V Battery (+)** | Arduino Nano VIN | Main power source |
 
-## Kurulum Adımları
+---
 
-1.  **Arduino IDE Kurulumu:** Eğer yüklü değilse, [Arduino IDE'yi buradan indirin ve kurun](https://www.arduino.cc/en/software).
-2.  **Kütüphane Yükleme:** Servo motoru kontrol etmek için `Servo.h` kütüphanesine ihtiyacımız var. Bu kütüphane Arduino IDE ile birlikte gelir, ekstra bir yüklemeye gerek yoktur.
-3.  **Kodu Kopyala:** Bu GitHub deposundaki `Akilli_Musluk_Sistemi.ino` dosyasının içeriğini kopyalayın veya tüm depoyu ZIP olarak indirin.
-4.  **Kodu Arduino IDE'ye Yapıştır:** Arduino IDE'yi açın, yeni bir taslak oluşturun ve kopyaladığınız kodu yapıştırın.
-5.  **Kart ve Port Seçimi:**
-    * `Araçlar > Kart > Arduino Nano` seçin.
-    * `Araçlar > İşlemci > ATmega328P (Old Bootloader)` seçili olduğundan emin olun.
-    * `Araçlar > Port` menüsünden Arduino Nano'nuzun bağlı olduğu COM portunu seçin.
-6.  **Kodu Yükle:** USB kablosu bağlıyken (pil bağlantıları çıkarılmış halde) kodu Arduino Nano'nuza yükleyin.
-7.  **Donanımı Birleştir:** Yukarıdaki bağlantı şemasını ve pin listesini takip ederek tüm bileşenleri breadboard üzerine kurun. **Özellikle Servo'nun harici güç bağlantısına ve ortak GND hattına dikkat edin.**
-8.  **Güç Ver:** USB kablosunu çıkarın ve 6V pil paketinizi bağlayın. Sistem otomatik olarak çalışmaya başlayacaktır.
+## 🔧 Installation Steps
 
-## Kullanım
+1. **Arduino IDE Setup:** Download and install the [Arduino IDE](https://www.arduino.cc/en/software).
+2. **Library Installation:** The `Servo.h` library comes pre-installed with the Arduino IDE.
+3. **Copy the Code:** Copy the contents of the `Smart_Faucet_System.ino` file from this repository.
+4. **Paste & Verify:** Open Arduino IDE, create a new sketch, and paste the code.
+5. **Board Selection:**
+    * Select `Tools > Board > Arduino Nano`.
+    * Ensure `Tools > Processor > ATmega328P (Old Bootloader)` is selected if using clones.
+    * Select the correct COM port.
+6. **Upload:** Connect the USB cable (without batteries connected) and upload the code.
+7. **Assembly:** Follow the wiring diagram to assemble on a breadboard. **Ensure common GND between the battery and Arduino.**
+8. **Power Up:** Disconnect USB and connect the 6V battery pack.
 
-* Elinizi mesafe sensörünün (HC-SR04) önüne, belirlediğiniz `algilamaMesafesi` (varsayılan 15 cm) altına yaklaştırın.
-* Musluk açılacak, yeşil LED yanacak ve kısa bir bip sesi duyulacaktır.
-* Elinizi sensörün görüş alanından çektiğinizde, `emniyetSuresi` (varsayılan 1 saniye) kadar bekledikten sonra musluk kapanacak, kırmızı LED yanacak ve iki kısa bip sesi duyulacaktır.
+---
 
-## Kod Açıklaması
+## 💡 Usage
 
-* `algilamaMesafesi`: Musluğun tetiklenmesi için elinizin sensöre ne kadar yaklaşması gerektiğini belirler (cm cinsinden).
-* `emniyetSuresi`: Elinizi sensörden çektikten sonra musluğun kapanması için beklenecek süredir (milisaniye cinsinden). Su tasarrufu için kısa tutulmuştur.
-* `mesafeOlc()` fonksiyonu, HC-SR04 sensöründen doğru mesafe okumasını sağlar.
-* `muslukAc()` ve `muslukKapat()` fonksiyonları, servo motoru kontrol eder, LED'leri yakıp söndürür ve buzzer ile geri bildirim sağlar.
+* Place your hand within the `algilamaMesafesi` (default 15 cm).
+* The faucet opens, the **Green LED** turns on, and a short "beep" is heard.
+* Once you remove your hand, the system waits for the `emniyetSuresi` (default 1 second), then closes the faucet, turns on the **Red LED**, and emits two short beeps.
 
-## Katkıda Bulunma
+---
 
-Bu projeyi daha da geliştirmek isterseniz pull request göndermekten çekinmeyin. Her türlü katkı memnuniyetle karşılanır.
+## 📝 Code Overview
+
+* `algilamaMesafesi`: Defines the detection threshold (in cm).
+* `emniyetSuresi`: The delay before closing the faucet to prevent rapid flickering (in ms).
+* `mesafeOlc()`: Function to handle the HC-SR04 pulse calculation.
+* `muslukAc()` & `muslukKapat()`: Controls the servo position, LEDs, and buzzer feedback.
+
+---
+
+**Developer:** Yunus Kunduz  
+**YouTube Channel:** [CozumLab](https://www.youtube.com/@CozumLabTR)
